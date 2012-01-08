@@ -17,7 +17,9 @@ http://scooterlabs.com/echo.xml
 By default, the service responds with plain text, but can return 
 JSON or XML.
 
-Examples:
+## Examples
+
+Plain text response:
 
     $ curl http://scooterlabs.com/echo
     Array
@@ -40,8 +42,12 @@ Examples:
         [info] => Echo service from Scooterlabs (http://www.scooterlabs.com)
     )
 
+JSON response:
+
     $ curl http://scooterlabs.com/echo.json?foo=bar
     {"method":"GET","headers":{"User-Agent":"curl\/7.19.7 (universal-apple-darwin10.0) libcurl\/7.19.7 OpenSSL\/0.9.8r zlib\/1.2.3","Host":"scooterlabs.com","Accept":"*\/*"},"request":{"foo":"bar"},"client_ip":"68.125.160.82","time_utc":"2012-01-08T21:33:36+0000","info":"Echo service from Scooterlabs (http:\/\/www.scooterlabs.com)"}
+
+XML response:
 
     $ curl http://scooterlabs.com/echo.xml?foo=bar
     <?xml version="1.0"?>
