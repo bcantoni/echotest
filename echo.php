@@ -7,6 +7,7 @@
  * http://scooterlabs.com/echo.xml - XML format
  *
  * Brian Cantoni <brian AT cantoni.org>
+ * https://github.com/bcantoni/echotest
  */
 
 if (function_exists('getallheaders')) {
@@ -14,6 +15,9 @@ if (function_exists('getallheaders')) {
 } else {
     $all_headers = array();
 }
+
+// remove any Google Adsense cookies
+removeGoogleAdsense ();
 
 $data = array (
     'method' => $_SERVER['REQUEST_METHOD'],
@@ -59,6 +63,19 @@ function xmlEscape($string) {
     return str_replace(array('&', '<', '>', '\'', '"'), array('&amp;', '&lt;', '&gt;', '&apos;', '&quot;'), $string);
 }
 
+/*
+ * Remove Google Adsense cookies if present in global $_REQUEST
+ *
+ */
+function removeGoogleAdsense () {
+    if ($_REQUEST) {
+        foreach ($_REQUEST as $k=>$v) {
+            if (preg_match ('/^__utm/', $k)) {
+                unset ($_REQUEST[$k]);
+            }
+        }
+    }
+}
 
 /*
  * Return best match for client IP address

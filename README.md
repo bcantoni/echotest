@@ -1,4 +1,4 @@
-# Echo webservice test
+# Echo Webservice
 
 A simple webservice call which echos back data about the request.
 Can be useful for testing and debugging webservice clients.
@@ -16,6 +16,16 @@ http://scooterlabs.com/echo.xml
 
 By default, the service responds with plain text, but can return 
 JSON or XML.
+
+## Data Returned
+
+In all data formats, the following data is returned:
+
+* `method`: the HTTP method used (GET, HEAD, POST, etc.)
+* `headers`: all HTTP headers received
+* `request`: all data parameters (query parameters or POST data)
+* `client_ip`: best guess at originating client IP address (from HTTP headers)
+* `time_utc`: request time (UTC)
 
 ## Examples
 
