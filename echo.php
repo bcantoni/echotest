@@ -16,7 +16,7 @@ if (function_exists('getallheaders')) {
     $all_headers = array();
 }
 
-// remove any Google Adsense cookies
+// remove any Google Adsense cookies to clean up the output
 removeGoogleAdsense ();
 
 $data = array (
@@ -33,11 +33,16 @@ $uri = $_SERVER['REQUEST_URI'];
 if (preg_match ('/^\/echo.json/', $uri)) {
     header ("Content-type: application/json");
     print json_encode ($data) . "\n";
-} else if (preg_match ('/^\/echo.xml*/', $uri)) {
+} else if (preg_match ('/^\/echo.xml/', $uri)) {
     header ("Content-type: application/xml");
     print array_to_xml ($data, new SimpleXMLElement ('<echo/>'))->asXML();
 } else {
     header ("Content-type: text/plain");
+    print <<<EOT
+Simple webservice echo test: make a request to this endpoint to return the HTTP request parameters and headers. Results available in plain text, JSON, or XML formats. See http://www.cantoni.org/2012/01/08/simple-webservice-echo-test for more details, or https://github.com/bcantoni/echotest for source code.
+
+
+EOT;
     print_r ($data);
 }
 
