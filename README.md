@@ -54,14 +54,41 @@ Plain text response:
 
 JSON response:
 
-    $ curl http://scooterlabs.com/echo.json?foo=bar
-    {"method":"GET","headers":{"User-Agent":"curl\/7.19.7 (universal-apple-darwin10.0) libcurl\/7.19.7 OpenSSL\/0.9.8r zlib\/1.2.3","Host":"scooterlabs.com","Accept":"*\/*"},"request":{"foo":"bar"},"client_ip":"68.125.160.82","time_utc":"2012-01-08T21:33:36+0000","info":"Echo service from Scooterlabs (http:\/\/www.scooterlabs.com)"}
+    $ curl --silent curl http://scooterlabs.com/echo.json?foo=bar | json_xs
+    {
+       "info" : "Echo service from Scooterlabs (http://www.scooterlabs.com)",
+       "request" : {
+          "foo" : "bar"
+       },
+       "headers" : {
+          "User-Agent" : "curl/7.21.3 (i386-portbld-freebsd7.3) libcurl/7.21.3 OpenSSL/1.0.0e zlib/1.2.3 libidn/1.22",
+          "Accept" : "*/*",
+          "Host" : "scooterlabs.com"
+       },
+       "client_ip" : "66.39.158.129",
+       "time_utc" : "2012-01-08T22:07:54+0000",
+       "method" : "GET"
+    }
 
 XML response:
 
-    $ curl http://scooterlabs.com/echo.xml?foo=bar
+    $ curl --silent http://scooterlabs.com/echo.xml?foo=bar | xml_pp
+    
     <?xml version="1.0"?>
-    <echo><method>GET</method><headers><User-Agent>curl/7.19.7 (universal-apple-darwin10.0) libcurl/7.19.7 OpenSSL/0.9.8r zlib/1.2.3</User-Agent><Host>scooterlabs.com</Host><Accept>*/*</Accept></headers><request><foo>bar</foo></request><client_ip>68.125.160.82</client_ip><time_utc>2012-01-08T21:33:48+0000</time_utc><info>Echo service from Scooterlabs (http://www.scooterlabs.com)</info></echo>
+    <echo>
+      <method>GET</method>
+      <headers>
+        <User-Agent>curl/7.19.7 (universal-apple-darwin10.0) libcurl/7.19.7 OpenSSL/0.9.8r zlib/1.2.3</User-Agent>
+        <Host>scooterlabs.com</Host>
+        <Accept>*/*</Accept>
+      </headers>
+      <request>
+        <foo>bar</foo>
+      </request>
+      <client_ip>68.122.10.221</client_ip>
+      <time_utc>2012-03-24T17:05:49+0000</time_utc>
+      <info>Echo service from Scooterlabs (http://www.scooterlabs.com)</info>
+    </echo>
 
 ## Installation
 
