@@ -3,7 +3,9 @@
 A simple webservice call which echos back data about the request.
 Can be useful for testing and debugging webservice clients.
 
-Inspired by http://respondto.it/ and http://requestb.in/.
+Inspired by http://respondto.it/ and http://requestb.in/. 
+
+http://httpbin.org/ is similar with lot of additional controls about the response generation.
 
 ## Usage
 
