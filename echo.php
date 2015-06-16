@@ -30,7 +30,10 @@ $data = array (
 );
 
 $uri = $_SERVER['REQUEST_URI'];
-if (preg_match ('/^\/echo.json/', $uri)) {
+if (isset($_REQUEST['ip'])) {
+    header ("Content-type: text/plain");
+    print $data['client_ip'];
+} else if (preg_match ('/^\/echo.json/', $uri)) {
     header ("Content-type: application/json");
     print json_encode ($data) . "\n";
 } else if (preg_match ('/^\/echo.xml/', $uri)) {
@@ -39,10 +42,8 @@ if (preg_match ('/^\/echo.json/', $uri)) {
 } else {
     header ("Content-type: text/plain");
     print <<<EOT
-Simple webservice echo test: make a request to this endpoint to return the HTTP request 
-parameters and headers. Results available in plain text, JSON, or XML formats. 
-See http://www.cantoni.org/2012/01/08/simple-webservice-echo-test for more details, or 
-https://github.com/bcantoni/echotest for source code.
+Simple webservice echo test: make a request to this endpoint to return the HTTP request parameters and headers. Results available in plain text, JSON, or XML formats. See http://www.cantoni.org/2012/01/08/simple-webservice-echo-test for more details, or https://github.com/bcantoni/echotest for source code.
+
 
 EOT;
     print_r ($data);

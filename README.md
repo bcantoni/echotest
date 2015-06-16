@@ -54,6 +54,11 @@ Plain text response:
         [info] => Echo service from Scooterlabs (http://www.scooterlabs.com)
     )
 
+Plain text response with public IP address:
+
+    $ curl http://scooterlabs.com/echo?ip
+    10.11.12.13
+
 JSON response:
 
     $ curl --silent curl http://scooterlabs.com/echo.json?foo=bar | json_xs
