@@ -5,6 +5,7 @@
  * http://scooterlabs.com/echo - plain text
  * http://scooterlabs.com/echo.json - JSON format
  * http://scooterlabs.com/echo.xml - XML format
+ * http://scooterlabs.com/echo?ip - return just client IP address (text)
  *
  * Brian Cantoni <brian AT cantoni.org>
  * https://github.com/bcantoni/echotest
