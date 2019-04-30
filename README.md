@@ -1,9 +1,8 @@
 # Echo Webservice
 
-A simple webservice call which echos back data about the request.
-Can be useful for testing and debugging webservice clients.
+A simple webservice call which echos back data about the request. Can be useful for testing and debugging webservice clients.
 
-Inspired by http://respondto.it/ and http://requestb.in/. 
+Inspired by http://respondto.it/ and http://requestb.in/ (both of which are no longer in service). See my blog post [Recent HTTP Request Inspector Services](http://www.cantoni.org/2019/04/30/recent-http-request-inspector-services) for an updated list of similar services.
 
 http://httpbin.org/ is similar with lot of additional controls about the response generation.
 
